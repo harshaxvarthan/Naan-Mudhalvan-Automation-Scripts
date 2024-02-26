@@ -1,16 +1,20 @@
-"""
-This is simple Naan Mudhalvan Web Automation Script to complete the quiz seelction of the Neural Networks Course
-This is a WIP Script which will not be actively maintained 
-People who are intersted to contribute to the Project can Fork and submit Pull Requests
-Author: harshaxvarthan
-"""
 from selenium import webdriver
-import login
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from login import LoginPage
 import time
 
+# Initialize the driver
 driver = webdriver.Edge()
 
-# Login
-login.login(driver)
+# Initialize the Pages
+login_page = LoginPage(driver,"au112821104031","859993")
+login_page.login()
 
-driver.close()
+
+
+
+
+
+
+time.sleep(15)
