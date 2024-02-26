@@ -1,5 +1,5 @@
 """
-This is simple Naan Mudhalvan Automation Script to complete the quiz seelction of the Neural Networks Course
+This is simple Naan Mudhalvan Web Automation Script to complete the quiz seelction of the Neural Networks Course
 This is a WIP Script which will not be actively maintained 
 People who are intersted to contribute to the Project can Fork and submit Pull Requests
 Author: harshaxvarthan
@@ -9,9 +9,8 @@ import login
 import time
 
 driver = webdriver.Edge()
+
+# Login
 login.login(driver)
-
-
-
 
 driver.close()
