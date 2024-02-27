@@ -37,7 +37,7 @@ Do not expect support as this is just a hobby
     ```
     Enter the Module Number: 1 //(1-5)
     ```
-5. Select the login method (nly Username/Password works for now)
+5. Select the login method (only Username/Password works for now)
 
     ```bash
     '1' -> Phone Number (max 3 tries)
