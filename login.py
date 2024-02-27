@@ -32,20 +32,20 @@ class LoginPage:
         input_field.click()
 
         # time to fill captcha
-        time.sleep(5)
+        time.sleep(8)
 
         # hack to go to mandiatory course 
         self.driver.get("https://portal.naanmudhalvan.tn.gov.in/mandatory/courses")
         
         # click the watch button 
-        watch_button = WebDriverWait(self.driver, 3).until(
+        watch_button = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//td//button[contains(text(), 'Watch')]"))
         )
         watch_button.click()
 
         # click access course
         button_xpath = "//button[contains(@class, 'text-naan-success') and contains(@class, 'bg-naan-success-light')]"
-        access_course = WebDriverWait(self.driver, 3).until(
+        access_course = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, button_xpath))
         )
 
