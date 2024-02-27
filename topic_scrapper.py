@@ -6,7 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from scrapper import Scrapper
 
-modules = 5
 class TopicScrapper:
     def __init__(self, driver):
         self.driver = driver
@@ -59,20 +58,22 @@ class TopicScrapper:
                 continue
         return modules
 
-    def automate(self):
+
+
+    def automate(self,module):
         module_elements = self.clickModule()
-        current_module = 5
         modules = self.checkProgress()
+        print(modules,module)
         loop = 1
-        if(current_module>modules):
-                current_module+=1
-                module_elements[current_module-1].click()
-        for x in range(current_module,6):
+        if(module>modules):
+                module+=1
+                module_elements[module-1].click()
+        for x in range(module,6):
             if(loop !=1):
                 scrapper = Scrapper(self.driver)
                 try:
                     time.sleep(2)
-                    module_elements[current_module-1].click()
+                    module_elements[module-1].click()
                 except Exception as e:
                     try:
                         time.sleep(2)
@@ -80,9 +81,9 @@ class TopicScrapper:
                     except Exception as e:
                         scrapper.completeClick()
             time.sleep(2)
-            self.scrap(current_module)
+            self.scrap(module)
             time.sleep(2)
-            current_module+=1
+            module+=1
             loop +=1
             
             

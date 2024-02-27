@@ -78,7 +78,7 @@ class Scrapper:
         self.clickOption(options,which) #clicks a option
 
         if(q==total):
-            time.sleep(1)
+            time.sleep(2)
             self.submit()
             print('submitted')
             return
@@ -132,7 +132,7 @@ class Scrapper:
                 print(x,'question incorrect so fixing')
             else:
                 if(x==total):
-                    time.sleep(1)
+                    time.sleep(2)
                     self.submit()
                     break
                 print(x,'question correct so skipping')
@@ -154,6 +154,6 @@ class Scrapper:
         for x in range(total):
             self.answer(q,which,total)
             q +=1
-        time.sleep(1)
+        time.sleep(2)
         wrong_questions=self.resultx()
         self.wrongFix(wrong_questions,total,which+1)

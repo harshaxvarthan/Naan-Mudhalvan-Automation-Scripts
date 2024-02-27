@@ -32,7 +32,7 @@ class LoginPage:
         input_field.click()
 
         # time to fill captcha
-        time.sleep(5)
+        time.sleep(20)
 
         # hack to go to mandiatory course 
         self.driver.get("https://portal.naanmudhalvan.tn.gov.in/mandatory/courses")
