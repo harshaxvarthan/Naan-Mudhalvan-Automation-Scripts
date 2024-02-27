@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from login import LoginPage
 from scrapper import Scrapper
+from topic_scrapper import TopicScrapper
 import time
 
 # Initialize the driver
@@ -14,5 +15,8 @@ login_page.login()
 
 # Automate
 automate = Scrapper(driver)
-automate.automate()
+
+# Scrap topics
+topic = TopicScrapper(driver)
+topic.automate()
 time.sleep(10)

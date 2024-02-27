@@ -55,14 +55,14 @@ class Scrapper:
         self.driver.execute_script("arguments[0].click();", options[which])
 
     def submit(self):
-        submit = WebDriverWait(self.driver, 20).until(
+        submit = WebDriverWait(self.driver, 5).until(
         EC.presence_of_element_located((By.ID, 'submitbutton'))
         )
         submit.click()
 
     def click_next_button(self, parent_id):
         xpath = f'//button[@class="btn btn-primary nextbutton" and @data-parent="{parent_id}"]'
-        next_button = WebDriverWait(self.driver, 20).until(
+        next_button = WebDriverWait(self.driver, 5).until(
             EC.element_to_be_clickable((By.XPATH, xpath))
         )
         next_button.click()
@@ -73,7 +73,6 @@ class Scrapper:
             print('exception handling')
             self.submit()
 
-    
     def answer(self,q,which,total):
         options=self.options(q) #calculates number of options
         self.clickOption(options,which) #clicks a option
@@ -102,10 +101,24 @@ class Scrapper:
             return wrong_questions
         except Exception as e:
             print('exception handling')
-            self.clickClose()
+            time.sleep(3)
+            try:
+                print('trying to close')
+                self.clickClose()
+            except Exception as e:
+                print('completed closing failed ')
+                
             wrong_questions = []
             return wrong_questions
     
+    def completeClick(self):
+        # Adjust the timeout and other conditions as necessary
+        wait = WebDriverWait(self.driver, 4)
+        button = wait.until(EC.element_to_be_clickable((By.ID, "loadNextLesson")))
+
+        # Click the button
+        button.click()
+
     def wrongFix(self,wrong_questions,total,which):
         if not wrong_questions:
             print("List is empty. Recursion terminated.")
@@ -126,12 +139,9 @@ class Scrapper:
                 parent_id = f"#q{q}VideoActivity"
                 self.clickNext(parent_id)
                 q+=1
-        time.sleep(1)
+        time.sleep(2)
         wrong_questions=self.resultx()
         self.wrongFix(wrong_questions,total,which+1)
-
-
-            
 
     def automate(self):
         print('in')
