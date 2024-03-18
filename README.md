@@ -17,13 +17,13 @@ Do not expect support as this is just a hobby
 **Warning**
 1. Make sure you enter the correct module number you are currently in after the script crashes
 2. Do not touch/click anything
-3. Do not maximize/minimize the window; fix the typos in this code
+3. Do not maximize/minimize the window
 
 ## Setup
 
 1. Clone the repository or download as a zip and extract:
     ```bash
-    git clone https://github.com/your-username/naan-mudhalvan-automation.git
+    git clone https://github.com/harshaxvarthan/Naan-Mudhalvan-Automation-Scripts.git
     ```
 2. Install Dependencies by running setup.bat as an administrator
 
